@@ -6,7 +6,7 @@ Surchy is built for the (admittedly specific) purpose of searching strings again
 
 It's primary audience is for those who do not want or are unable to use tools like grep.
 
-## Current Build Steps.
+## Current Build Steps
 
 ```
 npm run build
