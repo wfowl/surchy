@@ -11,5 +11,6 @@ It's primary audience is for those who do not want or are unable to use tools li
 ## Current Build Steps
 
 ```
-npm run build
+npm install
+npm run start
 ```
