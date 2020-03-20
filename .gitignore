@@ -1,0 +1,7 @@
+#Dependency directories
+node_modules/
+
+#Build directories
+build/
+surchy-darwin-x64/
+
