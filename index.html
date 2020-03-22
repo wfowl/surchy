@@ -5,8 +5,18 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Document</title>
     <link rel="stylesheet" href="build/tailwind.css" />
+    <style>
+      textarea::placeholder {
+        letter-spacing: 0.1em;
+        font-weight: 400;
+        text-transform: lowercase;
+      }
+      textarea {
+        padding: 1rem;
+      }
+    </style>
   </head>
-  <body>
+  <body class="bg-black">
     <div id="root"></div>
 
     <script src="build/build.js"></script>

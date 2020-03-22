@@ -1,9 +1,15 @@
 import React from "react";
-console.log(React);
 import ReactDom from "react-dom";
+import { Provider } from "react-redux";
+import store from "./store";
 
 import App from "./app";
-ReactDom.render(<App />, document.getElementById("root"));
 
-serviceworker.unregister();
-//TK TEST
+ReactDom.render(
+  <Provider store={store}>
+    <App />
+  </Provider>,
+  document.getElementById("root")
+);
+
+// serviceworker.unregister();
