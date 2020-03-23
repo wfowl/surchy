@@ -6,7 +6,7 @@ Surchy is built for the (admittedly specific) purpose of searching strings again
 
 It's primary audience is for those who do not want or are unable to use tools like grep.
 
-![mockup](https://github.com/wfowl/surchy/blob/fix-bundle/mockup.png?raw=true)
+![mockup](https://github.com/wfowl/surchy/blob/implement_search/mockup.png?raw=true)
 
 ## Current Build Steps
 
