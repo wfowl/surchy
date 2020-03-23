@@ -1,9 +1,11 @@
 import React from "react";
+import { connect } from "react-redux";
+
 import Directory from "./components/Directory.js";
 import Options from "./components/Options.js";
 import Search from "./components/Search.js";
 
-function App() {
+function App(props) {
   return (
     <div class="flex justify-center">
       <div class="w-11/12">
@@ -16,7 +18,7 @@ function App() {
 
         <Directory />
         <Search />
-        <Options />
+        {/* <Options /> */}
 
         <div class="flex justify-center mt-12">
           <input
@@ -30,4 +32,16 @@ function App() {
   );
 }
 
-export default App;
+const mapStateToProps = state => {
+  return {
+    directory: state.directory,
+    searchTerms: state.searchTerms,
+    options: state.options
+  };
+};
+
+const mapDispatchToProps = dispatch => {
+  return {};
+};
+
+export default connect(mapStateToProps, mapDispatchToProps)(App);

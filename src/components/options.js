@@ -1,6 +1,18 @@
 import React from "react";
+import { connect } from "react-redux";
+import { updateOptions } from "../redux/actions.js";
 
-function Options() {
+function Options(props) {
+  const { options } = props;
+
+  function toggleRecursion() {
+    if (options.recursive == false) {
+      props.updateOptions({ ...options, recursive: true });
+    } else {
+      props.updateOptions({ ...options, recursive: false });
+    }
+  }
+
   return (
     <div>
       <div>
@@ -19,7 +31,7 @@ function Options() {
             color: "white"
           }}
         >
-          Recursive
+          <span onClick={toggleRecursion}>Recursive</span>
           <input
             type="checkbox"
             style={{
@@ -40,8 +52,9 @@ function Options() {
               width: 15,
               backgroundColor: "black",
               border: "solid white",
-              borderWidth: "thin"
+              borderWidth: options.recursive ? "thick" : "thin"
             }}
+            onClick={toggleRecursion}
           ></span>
         </label>
       </div>
@@ -49,4 +62,16 @@ function Options() {
   );
 }
 
-export default Options;
+const mapStateToProps = state => {
+  return {
+    options: state.options
+  };
+};
+
+const mapDispatchToProps = dispatch => {
+  return {
+    updateOptions: options => dispatch(updateOptions(options))
+  };
+};
+
+export default connect(mapStateToProps, mapDispatchToProps)(Options);

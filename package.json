@@ -8,7 +8,8 @@
     "webpack": "webpack",
     "tailbuild": "tailwindcss build src/tailwind.build.css -o build/tailwind.css",
     "build": "npm run webpack && npm run tailbuild && electron-packager .",
-    "start": "npm run webpack && npm run tailbuild && electron ."
+    "start": "npm run webpack && npm run tailbuild && electron .",
+    "debug": "npm run start"
   },
   "repository": {
     "type": "git",
@@ -39,6 +40,7 @@
     "webpack-cli": "^3.3.11"
   },
   "dependencies": {
-    "react-redux": "^7.2.0"
+    "react-redux": "^7.2.0",
+    "redux": "^4.0.5"
   }
 }
