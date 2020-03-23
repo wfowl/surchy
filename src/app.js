@@ -18,7 +18,7 @@ function App(props) {
 
         <Directory />
         <Search />
-        {/* <Options /> */}
+        <Options />
 
         <div class="flex justify-center mt-12">
           <input

@@ -3,7 +3,8 @@ import reducer from "./reducers.js";
 
 const store = createStore(reducer, {
   options: {
-    recursive: false
+    recursive: false,
+    mostRecent: false
   },
   directory: "",
   searchTerms: ""
