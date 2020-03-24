@@ -23,28 +23,57 @@ export function getFilesFromDir(dir, recursive = false) {
       }
     }
   } else {
-    files = dirList.filter(item => {
+    for (let i = 0; i < dirList.length; i++) {
+      item = dirList[i];
       fullPath = path.join(dir, item);
-      return !fs.statSync(fullPath).isDirectory();
-    });
+      if (!fs.statSync(fullPath).isDirectory()) {
+        files.push(fullPath);
+      }
+    }
   }
 
   return files;
 }
 
-/**
+/** TODO change this to return an array
  *
  * @param {string[]} files - array containing files to search
  * @param {string} needles - array containing search terms
  */
 export function filesContainsContent(files, needles) {
+  /**
+   * The structure for this object is
+   * {
+   *  terms: [
+   *    {
+   *        name: '',
+   *        instances: [
+   *           '/path/to/file/filename.txt'
+   *        ]
+   *    }
+   * ]
+   * }
+   */
+  let report = { terms: [] };
+  needles.forEach(needle => {
+    report.terms.push({ name: needle, instances: [] });
+  });
+
   files.forEach(filePath => {
-    needles.forEach(needle => {
-      if (contentInFile(filePath, needle)) {
-        console.log(needle + " found in: " + filePath);
+    report.terms.forEach(term => {
+      if (contentInFile(filePath, term.name)) {
+        term.instances.push(filePath);
       }
     });
+    // needles.forEach(needle => {
+    //   if (contentInFile(filePath, needle)) {
+    //     report += needle + " found in: " + filePath + "\n";
+    //   }
+    // });
   });
+
+  console.log(report);
+  return report;
 }
 
 /**

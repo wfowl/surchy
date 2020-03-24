@@ -1,10 +1,5 @@
 const { app, BrowserWindow, ipcMain } = require("electron");
 
-ipcMain.on("synchronous-message", (event, arg) => {
-  console.log(arg); // prints "ping"
-  event.returnValue = "pong";
-});
-
 function createWindow() {
   // Create the browser window.
   const win = new BrowserWindow({
@@ -16,10 +11,31 @@ function createWindow() {
     }
   });
 
-  // and load the index.html of the app.
   win.loadFile("index.html");
 
-  // win.webContents.openDevTools();
+  ipcMain.on("send_results", (event, arg) => {
+    //Create the report summary window
+    const reportWin = new BrowserWindow({
+      width: 700,
+      height: 650,
+      x: 20,
+      y: 30,
+      resizable: true,
+      webPreferences: {
+        nodeIntegration: true
+      },
+      show: false
+    });
+
+    reportWin.loadFile("./src/resultsWindow/index.html");
+    reportWin.once("ready-to-show", () => {
+      reportWin.webContents.send("load_results", arg);
+      reportWin.show();
+    });
+
+    // ipcMain.send("load_results", arg);
+  });
+  win.webContents.openDevTools();
 }
 
 // This method will be called when Electron has finished

@@ -5,6 +5,10 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>surchy</title>
     <link rel="stylesheet" href="build/tailwind.css" />
+    <!-- <link
+      rel="stylesheet"
+      href="node_modules/@fortawesome/fontawesome-free/css/all.css"
+    /> -->
     <style>
       textarea::placeholder {
         letter-spacing: 0.1em;
@@ -21,6 +25,18 @@
         letter-spacing: 0.1em;
         font-weight: 400;
         text-transform: lowercase;
+      }
+      @keyframes rotating {
+        from {
+          transform: rotate(0deg);
+        }
+        to {
+          transform: rotate(360deg);
+        }
+      }
+
+      .rotating {
+        animation: rotating 2s linear infinite;
       }
     </style>
   </head>

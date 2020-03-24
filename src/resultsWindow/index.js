@@ -1,13 +1,14 @@
 // In renderer process (web page).
 const { ipcRenderer } = require("electron");
 
-function message() {
-  console.log(ipcRenderer.sendSync("synchronous-message", "ping")); // prints "pong"
-}
-
-console.log(ipcRenderer.sendSync("synchronous-message", "ping")); // prints "pong"
-
-ipcRenderer.on("asynchronous-reply", (event, arg) => {
-  console.log(arg); // prints "pong"
+ipcRenderer.on("load_results", (event, arg) => {
+  let report = "";
+  arg.terms.forEach(term => {
+    report += term.name + "\n";
+    term.instances.forEach(instance => {
+      report += "\t" + instance + "\n";
+    });
+    report += "\n";
+  });
+  document.getElementsByTagName("pre")[0].innerHTML = report;
 });
-ipcRenderer.send("asynchronous-message", "ping");
