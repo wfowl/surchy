@@ -4,6 +4,7 @@ import { updateDirectory } from "../redux/actions.js";
 
 function Directory(props) {
   const { directory } = props;
+  const isWindows = navigator.platform.indexOf("Win") > -1;
 
   function updateDirectory(event) {
     props.updateDirectory(event.target.value);
@@ -11,14 +12,18 @@ function Directory(props) {
 
   return (
     <div>
-      <h3 class="text-white uppercase tracking-widest font-normal text-xl mt-6">
+      <h3 class="text-white uppercase tracking-widest font-normal text-xl mt-6 select-none">
         Directory
       </h3>
       <input
         type="text"
         class="w-full mt-1"
         onclick="browsePath()"
-        placeholder="/example/full/path/"
+        placeholder={
+          isWindows
+            ? "C:\\Users\\User\\Desktop\\file_dir"
+            : "/example/full/path/"
+        }
         value={directory}
         onChange={updateDirectory}
       />

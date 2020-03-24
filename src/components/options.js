@@ -6,25 +6,17 @@ function Options(props) {
   const { options } = props;
 
   function toggleRecursion() {
-    if (options.recursive == false) {
-      props.updateOptions({ ...options, recursive: true });
-    } else {
-      props.updateOptions({ ...options, recursive: false });
-    }
+    props.updateOptions({ ...options, recursive: !options.recursive });
   }
 
   function toggleRecent() {
-    if (options.mostRecent == false) {
-      props.updateOptions({ ...options, mostRecent: true });
-    } else {
-      props.updateOptions({ ...options, mostRecent: false });
-    }
+    props.updateOptions({ ...options, mostRecent: !options.mostRecent });
   }
 
   return (
     <div>
       <div>
-        <h3 class="text-white uppercase tracking-widest font-normal text-xl mt-6">
+        <h3 class="text-white uppercase tracking-widest font-normal text-xl mt-6 select-none">
           Options
         </h3>
         <label
@@ -66,7 +58,7 @@ function Options(props) {
           ></span>
         </label>
 
-        <label
+        {/* <label
           class="container lowercase tracking-widest"
           style={{
             display: "block",
@@ -78,7 +70,7 @@ function Options(props) {
             color: "white"
           }}
         >
-          <span onClick={toggleRecent}>"Most Recent" only"</span>
+          <span onClick={toggleRecent}>"Most Recent" only</span>
           <input
             type="checkbox"
             style={{
@@ -103,7 +95,7 @@ function Options(props) {
             }}
             onClick={toggleRecent}
           ></span>
-        </label>
+        </label> */}
       </div>
     </div>
   );

@@ -19,7 +19,7 @@ function Search(props) {
   return (
     <div>
       <div class="flex items-center mt-6">
-        <h3 class="inline-block text-white uppercase tracking-widest font-normal text-xl ">
+        <h3 class="inline-block text-white uppercase tracking-widest font-normal text-xl select-none">
           Search Phrases
         </h3>
         <span

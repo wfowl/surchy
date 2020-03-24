@@ -1,4 +1,9 @@
-const { app, BrowserWindow } = require("electron");
+const { app, BrowserWindow, ipcMain } = require("electron");
+
+ipcMain.on("synchronous-message", (event, arg) => {
+  console.log(arg); // prints "ping"
+  event.returnValue = "pong";
+});
 
 function createWindow() {
   // Create the browser window.
@@ -14,7 +19,7 @@ function createWindow() {
   // and load the index.html of the app.
   win.loadFile("index.html");
 
-  win.webContents.openDevTools();
+  // win.webContents.openDevTools();
 }
 
 // This method will be called when Electron has finished

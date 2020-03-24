@@ -5,3 +5,4 @@ node_modules/
 build/
 surchy-darwin-x64/
 
+.vscode/

@@ -14,3 +14,10 @@ It's primary audience is for those who do not want or are unable to use tools li
 npm install
 npm run start
 ```
+
+## TODO
+
+- write in messaging between screens
+  - display the results in window 2
+- enable "most recent" functionality
+- Write to accommodate other encodings besides utf8

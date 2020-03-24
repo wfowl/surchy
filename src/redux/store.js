@@ -6,8 +6,8 @@ const store = createStore(reducer, {
     recursive: false,
     mostRecent: false
   },
-  directory: "",
-  searchTerms: ""
+  directory: "/Users/williamfowler/Projects/file_search_test",
+  searchTerms: "21471"
 });
 
 export default store;
