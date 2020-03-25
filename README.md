@@ -2,7 +2,7 @@
 
 > Surchy is the dead simple text file searching app.
 
-Surchy is built for the (admittedly specific) purpose of searching strings against any number of text files.
+Surchy searches for strings against utf8 encoded files.
 
 It's primary audience is for those who do not want or are unable to use tools like grep.
 
@@ -14,14 +14,6 @@ It's primary audience is for those who do not want or are unable to use tools li
 npm install
 npm run start
 ```
-
-## TODO
-
-- [x] change it so that newline characters by themselves do not trigger searches.
-- [x] fix windows app icons
-- [ ] can't right click in input fields
-- [ ] Write to accommodate other encodings besides utf8
-- [ ] fix the bug on windows where the process sticks around even after the app closes
 
 ## Notes
 
