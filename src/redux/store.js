@@ -5,8 +5,8 @@ const devStore = {
   options: {
     recursive: false
   },
-  directory: "/Users/williamfowler/Projects/file_search_test",
-  searchTerms: "21471\n47460\n6911"
+  directory: "/path/to/files",
+  searchTerms: "enter\nsearch\nterms\nhere"
 };
 
 const prodStore = {
