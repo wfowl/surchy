@@ -8,17 +8,24 @@ It's primary audience is for those who do not want or are unable to use tools li
 
 ![mockup](https://github.com/wfowl/surchy/blob/master/surchy_app_preview.png?raw=true)
 
-## Current Build Steps
+## Local Development Steps
 
 ```
 npm install
 npm run start
 ```
 
-## Notes
+## Building
 
-If you would like to build a windows executable using Mac you will need to install Wine first before running
+- If you would like to build a windows executable using Mac you will need to install Wine first.
+- Run the following command for building a windows executable:
 
 ```
 npm run build-win
+```
+
+- Run the following command for building a mac app:
+
+```
+npm run build-mac
 ```
