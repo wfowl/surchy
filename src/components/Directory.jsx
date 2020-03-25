@@ -20,9 +20,7 @@ function Directory(props) {
         class="w-full mt-1"
         onclick="browsePath()"
         placeholder={
-          isWindows
-            ? "C:\\Users\\User\\Desktop\\file_dir"
-            : "/example/full/path/"
+          isWindows ? "C:\\Users\\User\\Desktop\\file_dir" : "/path/to/files"
         }
         value={directory}
         onChange={updateDirectory}
