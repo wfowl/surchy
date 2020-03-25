@@ -17,10 +17,11 @@ npm run start
 
 ## TODO
 
-- change it so that newline characters by themselves do not trigger searches.
-- fix windows app icons
-- enable "most recent" functionality
-- Write to accommodate other encodings besides utf8
+- [x] change it so that newline characters by themselves do not trigger searches.
+- [x] fix windows app icons
+- [ ] can't right click in input fields
+- [ ] Write to accommodate other encodings besides utf8
+- [ ] fix the bug on windows where the process sticks around even after the app closes
 
 ## Notes
 

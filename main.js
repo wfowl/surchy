@@ -1,6 +1,40 @@
 const { app, BrowserWindow, ipcMain } = require("electron");
+const contextMenu = require("electron-context-menu");
 
+/**
+ * Create the report window upon request
+ */
+function createReportWindow(arg) {
+  const reportWin = new BrowserWindow({
+    width: 900,
+    height: 650,
+    x: 20,
+    y: 30,
+    resizable: true,
+    webPreferences: {
+      nodeIntegration: true
+    },
+    show: false
+  });
+
+  reportWin.loadFile("./src/resultsWindow/index.html");
+  reportWin.once("ready-to-show", () => {
+    reportWin.webContents.send("load_results", arg);
+    reportWin.show();
+  });
+  // reportWin.webContents.openDevTools();
+}
+
+/**
+ * Create the main surchy window
+ */
 function createWindow() {
+  //Create Context Menu - Right Click Options
+  contextMenu({
+    prepend: (defaultActions, params, browserWindow) => [],
+    showLookUpSelection: false
+  });
+
   // Create the browser window.
   const win = new BrowserWindow({
     width: 500,
@@ -14,26 +48,7 @@ function createWindow() {
   win.loadFile("index.html");
 
   ipcMain.on("send_results", (event, arg) => {
-    //Create the report summary window
-    const reportWin = new BrowserWindow({
-      width: 900,
-      height: 650,
-      x: 20,
-      y: 30,
-      resizable: true,
-      webPreferences: {
-        nodeIntegration: true
-      },
-      show: false
-    });
-
-    reportWin.loadFile("./src/resultsWindow/index.html");
-    reportWin.once("ready-to-show", () => {
-      reportWin.webContents.send("load_results", arg);
-      reportWin.show();
-    });
-
-    // ipcMain.send("load_results", arg);
+    createReportWindow(arg);
   });
   // win.webContents.openDevTools();
 }
@@ -45,20 +60,5 @@ app.whenReady().then(createWindow);
 
 // Quit when all windows are closed.
 app.on("window-all-closed", () => {
-  // On macOS it is common for applications and their menu bar
-  // to stay active until the user quits explicitly with Cmd + Q
-  if (process.platform !== "darwin") {
-    app.quit();
-  }
+  app.quit();
 });
-
-app.on("activate", () => {
-  // On macOS it's common to re-create a window in the app when the
-  // dock icon is clicked and there are no other windows open.
-  if (BrowserWindow.getAllWindows().length === 0) {
-    createWindow();
-  }
-});
-
-// In this file you can include the rest of your app's specific main process
-// code. You can also put them in separate files and require them here.

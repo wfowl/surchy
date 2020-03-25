@@ -5,12 +5,10 @@
   "main": "main.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
-    "webpack": "webpack",
     "tailbuild": "tailwindcss build src/tailwind.build.css -o build/tailwind.css",
-    "build-mac": "npm run webpack && npm run tailbuild && electron-packager . --overwrite --platform=darwin --icon=icons/OSX.icns",
-    "build-win": "npm run webpack && npm run tailbuild && electron-packager . --overwrite --platform=win32 --icon=icons/OSX.icns",
-    "start": "npm run webpack && npm run tailbuild && electron .",
-    "debug": "npm run start"
+    "build-mac": "webpack --mode production && npm run tailbuild && electron-packager . --overwrite --platform=darwin --icon=icons/OSX.icns",
+    "build-win": "webpack --mode production && npm run tailbuild && electron-packager . --overwrite --platform=win32 --icon=icons/icon.win.ico",
+    "start": "webpack --mode development && npm run tailbuild && electron ."
   },
   "repository": {
     "type": "git",
@@ -42,6 +40,7 @@
   },
   "dependencies": {
     "@fortawesome/fontawesome-free": "^5.13.0",
+    "electron-context-menu": "^0.16.0",
     "react-redux": "^7.2.0",
     "redux": "^4.0.5"
   }

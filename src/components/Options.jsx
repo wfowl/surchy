@@ -9,10 +9,6 @@ function Options(props) {
     props.updateOptions({ ...options, recursive: !options.recursive });
   }
 
-  function toggleRecent() {
-    props.updateOptions({ ...options, mostRecent: !options.mostRecent });
-  }
-
   return (
     <div>
       <div>
@@ -57,45 +53,6 @@ function Options(props) {
             onClick={toggleRecursion}
           ></span>
         </label>
-
-        {/* <label
-          class="container lowercase tracking-widest"
-          style={{
-            display: "block",
-            position: "relative",
-            paddingLeft: 35,
-            marginBottom: 12,
-            cursor: "pointer",
-            userSelect: "none",
-            color: "white"
-          }}
-        >
-          <span onClick={toggleRecent}>"Most Recent" only</span>
-          <input
-            type="checkbox"
-            style={{
-              position: "absolute",
-              opacity: 0,
-              cursor: "pointer",
-              height: 0,
-              width: 0
-            }}
-          />
-          <span
-            class="checkmark"
-            style={{
-              position: "absolute",
-              top: 6,
-              left: 13,
-              height: 15,
-              width: 15,
-              backgroundColor: "black",
-              border: "solid white",
-              borderWidth: options.mostRecent ? "thick" : "thin"
-            }}
-            onClick={toggleRecent}
-          ></span>
-        </label> */}
       </div>
     </div>
   );

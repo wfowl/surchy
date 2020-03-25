@@ -13,7 +13,7 @@ module.exports = function(_env, argv) {
       publicPath: "build/"
     },
     optimization: {
-      minimize: false
+      minimize: isProduction
     },
     module: {
       rules: [

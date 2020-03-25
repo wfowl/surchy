@@ -13,14 +13,12 @@ import {
 import { ipcRenderer } from "electron";
 
 function App(props) {
-  // const [spinning, setSpinning] = useState(false); TODO
-
   function runSearch() {
     const USE_RECURSION = props.options.recursive;
     const dir = props.directory;
-    const list = props.searchTerms.split("\n");
-
-    // setSpinning(!spinning);
+    const list = props.searchTerms.split("\n").filter(term => {
+      return term != "";
+    });
 
     if (dir && list) {
       const files = getFilesFromDir(dir, USE_RECURSION);
@@ -53,15 +51,7 @@ function App(props) {
             class="tracking-widest font-semibold uppercase bg-gray-700 text-white px-5 py-2 content-center hover:bg-gray-600 cursor-pointer select-none outline-none w-20 h-10"
             value="run"
             onClick={runSearch}
-            // style={{ display: spinning ? "none" : "initial" }} TODO
           />
-
-          {/* <div
-            class="px-5 py-2 bg-gray-700 w-20 h-10 text-center cursor-wait"
-            style={{ display: spinning ? "initial" : "none" }}
-          >
-            <i class="fas fa-spinner rotating text-white text-xl"></i>
-          </div> */}
         </div>
       </div>
     </div>
