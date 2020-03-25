@@ -13,7 +13,7 @@ import {
 import { ipcRenderer } from "electron";
 
 function App(props) {
-  // const [spinning, setSpinning] = useState(false);
+  // const [spinning, setSpinning] = useState(false); TODO
 
   function runSearch() {
     const USE_RECURSION = props.options.recursive;
@@ -50,14 +50,18 @@ function App(props) {
         <div class="flex justify-center mt-12">
           <input
             type="button"
-            class="tracking-widest font-semibold uppercase bg-gray-700 text-white px-5 py-2 content-center hover:bg-gray-600 cursor-pointer select-none outline-none"
+            class="tracking-widest font-semibold uppercase bg-gray-700 text-white px-5 py-2 content-center hover:bg-gray-600 cursor-pointer select-none outline-none w-20 h-10"
             value="run"
             onClick={runSearch}
+            // style={{ display: spinning ? "none" : "initial" }} TODO
           />
 
-          {/* <span style={{ display: spinning ? "initial" : "none" }}>
-            <i class="fas fa-spinner rotating text-white text-xl mt-2"></i>
-          </span> */}
+          {/* <div
+            class="px-5 py-2 bg-gray-700 w-20 h-10 text-center cursor-wait"
+            style={{ display: spinning ? "initial" : "none" }}
+          >
+            <i class="fas fa-spinner rotating text-white text-xl"></i>
+          </div> */}
         </div>
       </div>
     </div>

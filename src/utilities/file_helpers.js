@@ -65,14 +65,8 @@ export function filesContainsContent(files, needles) {
         term.instances.push(filePath);
       }
     });
-    // needles.forEach(needle => {
-    //   if (contentInFile(filePath, needle)) {
-    //     report += needle + " found in: " + filePath + "\n";
-    //   }
-    // });
   });
 
-  console.log(report);
   return report;
 }
 

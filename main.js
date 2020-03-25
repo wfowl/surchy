@@ -16,7 +16,7 @@ function createWindow() {
   ipcMain.on("send_results", (event, arg) => {
     //Create the report summary window
     const reportWin = new BrowserWindow({
-      width: 700,
+      width: 900,
       height: 650,
       x: 20,
       y: 30,
@@ -35,7 +35,7 @@ function createWindow() {
 
     // ipcMain.send("load_results", arg);
   });
-  win.webContents.openDevTools();
+  // win.webContents.openDevTools();
 }
 
 // This method will be called when Electron has finished

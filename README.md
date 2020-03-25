@@ -17,7 +17,15 @@ npm run start
 
 ## TODO
 
-- write in messaging between screens
-  - display the results in window 2
+- change it so that newline characters by themselves do not trigger searches.
+- fix windows app icons
 - enable "most recent" functionality
 - Write to accommodate other encodings besides utf8
+
+## Notes
+
+If you would like to build a windows executable using Mac you will need to install Wine first before running
+
+```
+npm run build-win
+```

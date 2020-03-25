@@ -7,7 +7,8 @@
     "test": "echo \"Error: no test specified\" && exit 1",
     "webpack": "webpack",
     "tailbuild": "tailwindcss build src/tailwind.build.css -o build/tailwind.css",
-    "build": "npm run webpack && npm run tailbuild && electron-packager .",
+    "build-mac": "npm run webpack && npm run tailbuild && electron-packager . --overwrite --platform=darwin --icon=icons/OSX.icns",
+    "build-win": "npm run webpack && npm run tailbuild && electron-packager . --overwrite --platform=win32 --icon=icons/OSX.icns",
     "start": "npm run webpack && npm run tailbuild && electron .",
     "debug": "npm run start"
   },
