@@ -6,7 +6,7 @@ Surchy searches for strings against utf8 encoded files.
 
 It's primary audience is for those who do not want or are unable to use tools like grep.
 
-![mockup](https://github.com/wfowl/surchy/blob/implement_search/mockup.png?raw=true)
+![mockup](https://github.com/wfowl/surchy/app.png)
 
 ## Current Build Steps
 
